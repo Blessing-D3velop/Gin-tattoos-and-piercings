@@ -1,0 +1,1172 @@
+/* =========================================================
+   GIN TATTOOS
+   AFTERCARE
+   PRICE-LIST STYLE
+   ========================================================= */
+
+.aftercare {
+
+  --red: #d9000a;
+  --red-dark: #b80008;
+  --red-light: #ff3038;
+
+  --black: #111111;
+  --black-soft: #171717;
+
+  --white: #ffffff;
+
+  --grey: #999999;
+  --grey-light: #c1c1c1;
+
+  position: relative;
+
+  width: 100%;
+
+  padding: 125px 0 140px;
+
+  background: #fafafa;
+
+  overflow: hidden;
+
+  font-family: "Roboto", sans-serif;
+}
+
+
+/* =========================================================
+   BACKGROUND GLOW
+   ========================================================= */
+
+.aftercare::before {
+
+  content: "";
+
+  position: absolute;
+
+  width: 550px;
+  height: 550px;
+
+  left: -300px;
+  top: 15%;
+
+  border-radius: 50%;
+
+  background:
+    rgba(217, 0, 10, 0.045);
+
+  filter: blur(110px);
+
+  pointer-events: none;
+
+  animation:
+    aftercareGlow 9s ease-in-out infinite;
+}
+
+
+@keyframes aftercareGlow {
+
+  0%,
+  100% {
+    transform:
+      translate(0, 0);
+  }
+
+  50% {
+    transform:
+      translate(60px, -40px);
+  }
+
+}
+
+
+/* =========================================================
+   CONTAINER
+   ========================================================= */
+
+.aftercare-container {
+
+  position: relative;
+
+  z-index: 2;
+
+  width:
+    min(
+      1280px,
+      calc(100% - 80px)
+    );
+
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   HEADING
+   ========================================================= */
+
+.aftercare-heading {
+
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: space-between;
+
+  gap: 60px;
+
+  margin-bottom: 45px;
+}
+
+
+.aftercare-heading-left {
+
+  min-width: 0;
+}
+
+
+.aftercare-label {
+
+  display: block;
+
+  margin-bottom: 16px;
+
+  color: var(--red);
+
+  font-size: 0.72rem;
+
+  font-weight: 900;
+
+  letter-spacing: 0.22em;
+}
+
+
+.aftercare-title {
+
+  margin: 0;
+
+  color: var(--black);
+
+  font-family: "Anton", sans-serif;
+
+  font-size:
+    clamp(
+      4.2rem,
+      7vw,
+      7rem
+    );
+
+  font-weight: 400;
+
+  line-height: 0.86;
+
+  letter-spacing: -0.02em;
+}
+
+
+.aftercare-title span {
+
+  display: block;
+
+  color: var(--red);
+}
+
+
+.aftercare-heading-right {
+
+  width:
+    min(
+      390px,
+      100%
+    );
+
+  padding-bottom: 7px;
+}
+
+
+.aftercare-heading-right p {
+
+  margin: 0;
+
+  color: #666666;
+
+  font-size: 0.92rem;
+
+  font-weight: 400;
+
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   INTRO
+   ========================================================= */
+
+.aftercare-intro {
+
+  max-width: 820px;
+
+  margin-bottom: 40px;
+
+  padding-left: 20px;
+
+  border-left:
+    3px solid var(--red);
+}
+
+
+.aftercare-intro p {
+
+  margin: 0;
+
+  color: #777777;
+
+  font-size: 0.84rem;
+
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   CARE GRID
+   ========================================================= */
+
+.aftercare-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 14px;
+
+  margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   CARE CARD
+   ========================================================= */
+
+.aftercare-card {
+
+  position: relative;
+
+  min-height: 370px;
+
+  padding: 28px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  background:
+    #111111;
+
+  border:
+    1px solid #262626;
+
+  border-radius: 22px;
+
+  overflow: hidden;
+
+  isolation: isolate;
+
+  transition:
+    transform 0.45s cubic-bezier(.16, 1, .3, 1),
+    border-color 0.35s ease,
+    box-shadow 0.4s ease;
+}
+
+
+/* =========================================================
+   SHINY BORDER
+   ========================================================= */
+
+.aftercare-card::before {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  padding: 1.5px;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      120deg,
+      transparent 20%,
+      rgba(217, 0, 10, 0.2) 35%,
+      #ff3038 48%,
+      #ffffff 50%,
+      #ff3038 52%,
+      rgba(217, 0, 10, 0.2) 65%,
+      transparent 80%
+    );
+
+  background-size: 250% 250%;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+
+  -webkit-mask-composite: xor;
+
+  mask-composite: exclude;
+
+  transition:
+    opacity 0.35s ease;
+}
+
+
+.aftercare-card:hover::before {
+
+  opacity: 1;
+
+  animation:
+    shinyAftercareBorder 2.4s linear infinite;
+}
+
+
+@keyframes shinyAftercareBorder {
+
+  0% {
+    background-position:
+      200% 50%;
+  }
+
+  100% {
+    background-position:
+      -50% 50%;
+  }
+
+}
+
+
+/* =========================================================
+   CARD GLOW
+   ========================================================= */
+
+.aftercare-card::after {
+
+  content: "";
+
+  position: absolute;
+
+  width: 220px;
+  height: 220px;
+
+  right: -130px;
+  bottom: -130px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(217, 0, 10, 0.18);
+
+  filter: blur(65px);
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.5s ease,
+    transform 0.6s ease;
+}
+
+
+.aftercare-card:hover::after {
+
+  opacity: 1;
+
+  transform:
+    translate(-35px, -35px);
+}
+
+
+/* =========================================================
+   CARD HOVER
+   ========================================================= */
+
+.aftercare-card:hover {
+
+  transform:
+    translateY(-8px);
+
+  border-color:
+    rgba(217, 0, 10, 0.45);
+
+  box-shadow:
+    0 25px 55px
+    rgba(0, 0, 0, 0.18);
+}
+
+
+/* =========================================================
+   CARD TOP
+   ========================================================= */
+
+.aftercare-card-top {
+
+  position: relative;
+
+  z-index: 2;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 70px;
+}
+
+
+.aftercare-number {
+
+  color: #ff3a42;
+
+  font-size: 0.7rem;
+
+  font-weight: 900;
+
+  letter-spacing: 0.16em;
+}
+
+
+/* =========================================================
+   ICON
+   ========================================================= */
+
+.aftercare-icon {
+
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  color: #ffffff;
+
+  background:
+    rgba(255, 255, 255, 0.06);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.1);
+
+  font-size: 1rem;
+
+  font-weight: 900;
+
+  transition:
+    background 0.35s ease,
+    border-color 0.35s ease,
+    transform 0.4s ease;
+}
+
+
+.aftercare-card:hover .aftercare-icon {
+
+  background:
+    var(--red);
+
+  border-color:
+    var(--red);
+
+  transform:
+    rotate(5deg)
+    scale(1.08);
+
+  box-shadow:
+    0 10px 25px
+    rgba(217, 0, 10, 0.3);
+}
+
+
+/* =========================================================
+   CARD CONTENT
+   ========================================================= */
+
+.aftercare-card-content {
+
+  position: relative;
+
+  z-index: 2;
+
+  margin-top: auto;
+}
+
+
+.aftercare-card-label {
+
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: #777777;
+
+  font-size: 0.61rem;
+
+  font-weight: 900;
+
+  letter-spacing: 0.18em;
+}
+
+
+.aftercare-card-content h3 {
+
+  margin:
+    0 0 15px;
+
+  color:
+    #ffffff;
+
+  font-size:
+    1.55rem;
+
+  font-weight:
+    900;
+
+  line-height:
+    1;
+
+  letter-spacing:
+    -0.03em;
+
+  transition:
+    color 0.3s ease;
+}
+
+
+.aftercare-card-content h3 span {
+
+  color:
+    var(--red);
+
+  display:
+    block;
+}
+
+
+.aftercare-card:hover
+.aftercare-card-content h3 {
+
+  color:
+    #ffffff;
+}
+
+
+.aftercare-card-content p {
+
+  margin: 0;
+
+  color: #999999;
+
+  font-size: 0.72rem;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   BOTTOM ACTION PANEL
+   ========================================================= */
+
+.aftercare-footer {
+
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 45px;
+
+  padding: 42px 45px;
+
+  background:
+    #111111;
+
+  border-radius: 24px;
+
+  overflow: hidden;
+
+  isolation: isolate;
+}
+
+
+.aftercare-footer::before {
+
+  content: "";
+
+  position: absolute;
+
+  width: 430px;
+  height: 430px;
+
+  right: -190px;
+  top: -220px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(217, 0, 10, 0.17);
+
+  filter:
+    blur(80px);
+
+  pointer-events:
+    none;
+}
+
+
+/* =========================================================
+   FOOTER CONTENT
+   ========================================================= */
+
+.aftercare-footer-content {
+
+  position: relative;
+
+  z-index: 2;
+
+  max-width: 650px;
+}
+
+
+.aftercare-footer-label {
+
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: #ff3a42;
+
+  font-size: 0.68rem;
+
+  font-weight: 900;
+
+  letter-spacing: 0.2em;
+}
+
+
+.aftercare-footer-content h3 {
+
+  margin: 0 0 12px;
+
+  color: #ffffff;
+
+  font-size:
+    clamp(
+      1.5rem,
+      3vw,
+      2.3rem
+    );
+
+  font-weight: 900;
+
+  line-height: 1;
+
+  letter-spacing: -0.03em;
+}
+
+
+.aftercare-footer-content h3 span {
+
+  color: var(--red);
+}
+
+
+.aftercare-footer-content p {
+
+  max-width: 590px;
+
+  margin: 0;
+
+  color: #888888;
+
+  font-size: 0.72rem;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   ACTION BUTTONS
+   ========================================================= */
+
+.aftercare-footer-actions {
+
+  position: relative;
+
+  z-index: 3;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+
+  min-width: 225px;
+}
+
+
+.aftercare-action-button {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 15px;
+
+  padding: 14px 17px;
+
+  border:
+    1px solid var(--red);
+
+  border-radius: 10px;
+
+  background:
+    var(--red);
+
+  color:
+    #ffffff;
+
+  text-decoration:
+    none;
+
+  font-size:
+    0.68rem;
+
+  font-weight:
+    900;
+
+  letter-spacing:
+    0.1em;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+.aftercare-action-arrow {
+
+  width: 30px;
+  height: 30px;
+
+  flex-shrink: 0;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255, 255, 255, 0.12);
+
+  color:
+    #ffffff;
+
+  font-size: 0.9rem;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+/* =========================================================
+   BUTTON HOVER — WHITE
+   ========================================================= */
+
+.aftercare-action-button:hover {
+
+  background:
+    #ffffff;
+
+  color:
+    var(--red);
+
+  transform:
+    translateY(-3px);
+
+  box-shadow:
+    0 12px 30px
+    rgba(217, 0, 10, 0.25);
+}
+
+
+.aftercare-action-button:hover
+.aftercare-action-arrow {
+
+  background:
+    var(--red);
+
+  color:
+    #ffffff;
+
+  transform:
+    translate(2px, -2px);
+}
+
+
+/* =========================================================
+   SECONDARY BUTTON
+   ========================================================= */
+
+.aftercare-action-secondary {
+
+  background:
+    transparent;
+
+  border-color:
+    rgba(255, 255, 255, 0.2);
+
+  color:
+    #ffffff;
+}
+
+
+.aftercare-action-secondary
+.aftercare-action-arrow {
+
+  background:
+    rgba(255, 255, 255, 0.08);
+}
+
+
+.aftercare-action-secondary:hover {
+
+  background:
+    var(--red);
+
+  border-color:
+    var(--red);
+
+  color:
+    #ffffff;
+}
+
+
+.aftercare-action-secondary:hover
+.aftercare-action-arrow {
+
+  background:
+    #ffffff;
+
+  color:
+    var(--red);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+  .aftercare-container {
+
+    width:
+      calc(100% - 60px);
+  }
+
+
+  .aftercare-grid {
+
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+
+  .aftercare-card {
+
+    min-height:
+      330px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL TABLET
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+  .aftercare {
+
+    padding:
+      100px 0
+      110px;
+  }
+
+
+  .aftercare-heading {
+
+    align-items:
+      flex-start;
+
+    flex-direction:
+      column;
+
+    gap:
+      25px;
+
+    margin-bottom:
+      40px;
+  }
+
+
+  .aftercare-heading-right {
+
+    max-width:
+      500px;
+  }
+
+
+  .aftercare-grid {
+
+    grid-template-columns:
+      1fr 1fr;
+  }
+
+
+  .aftercare-footer {
+
+    align-items:
+      flex-start;
+
+    flex-direction:
+      column;
+  }
+
+
+  .aftercare-footer-actions {
+
+    width:
+      100%;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .aftercare {
+
+    padding:
+      85px 0
+      90px;
+  }
+
+
+  .aftercare-container {
+
+    width:
+      calc(100% - 32px);
+  }
+
+
+  .aftercare-title {
+
+    font-size:
+      clamp(
+        3.4rem,
+        15vw,
+        5rem
+      );
+  }
+
+
+  .aftercare-heading-right p {
+
+    font-size:
+      0.82rem;
+  }
+
+
+  .aftercare-intro {
+
+    padding-left:
+      15px;
+
+    margin-bottom:
+      30px;
+  }
+
+
+  .aftercare-intro p {
+
+    font-size:
+      0.76rem;
+  }
+
+
+  .aftercare-grid {
+
+    grid-template-columns:
+      1fr;
+
+    gap:
+      12px;
+  }
+
+
+  .aftercare-card {
+
+    min-height:
+      310px;
+
+    padding:
+      25px;
+
+    border-radius:
+      20px;
+  }
+
+
+  .aftercare-card-top {
+
+    margin-bottom:
+      55px;
+  }
+
+
+  .aftercare-card-content h3 {
+
+    font-size:
+      1.7rem;
+  }
+
+
+  .aftercare-card-content p {
+
+    font-size:
+      0.72rem;
+  }
+
+
+  .aftercare-footer {
+
+    padding:
+      30px 22px;
+
+    border-radius:
+      20px;
+  }
+
+
+  .aftercare-footer-content h3 {
+
+    font-size:
+      1.5rem;
+
+    line-height:
+      1.05;
+  }
+
+
+  .aftercare-footer-actions {
+
+    min-width:
+      0;
+  }
+
+
+  .aftercare-action-button {
+
+    width:
+      100%;
+
+    padding:
+      14px 15px;
+
+    font-size:
+      0.65rem;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .aftercare-container {
+
+    width:
+      calc(100% - 24px);
+  }
+
+
+  .aftercare-title {
+
+    font-size:
+      3.2rem;
+  }
+
+
+  .aftercare-card {
+
+    padding:
+      21px;
+  }
+
+
+  .aftercare-footer {
+
+    padding:
+      27px 18px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .aftercare *,
+  .aftercare *::before,
+  .aftercare *::after {
+
+    animation-duration:
+      0.01ms !important;
+
+    animation-iteration-count:
+      1 !important;
+
+    transition-duration:
+      0.01ms !important;
+  }
+
+}

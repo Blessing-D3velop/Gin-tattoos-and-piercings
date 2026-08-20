@@ -1,0 +1,1844 @@
+/* =========================================================
+   GIN TATTOOS
+   SERVICES
+   ========================================================= */
+
+.services {
+  --red: #d9000a;
+  --red-dark: #b80008;
+  --red-light: #ff3038;
+  --black: #111111;
+  --grey: #666666;
+  --border: #e3e3e3;
+  --card: #ffffff;
+
+  position: relative;
+
+  width: 100%;
+
+  padding: 125px 0 140px;
+
+  background: #fafafa;
+
+  overflow: hidden;
+
+  font-family: "Roboto", sans-serif;
+}
+
+
+/* =========================================================
+   BACKGROUND GLOW
+   ========================================================= */
+
+.services::before {
+  content: "";
+
+  position: absolute;
+
+  width: 550px;
+  height: 550px;
+
+  right: -280px;
+  top: 12%;
+
+  border-radius: 50%;
+
+  background:
+    rgba(217, 0, 10, 0.045);
+
+  filter: blur(110px);
+
+  pointer-events: none;
+
+  animation:
+    servicesGlow 9s ease-in-out infinite;
+}
+
+
+@keyframes servicesGlow {
+
+  0%,
+  100% {
+    transform:
+      translate(0, 0);
+  }
+
+  50% {
+    transform:
+      translate(-60px, 50px);
+  }
+
+}
+
+
+/* =========================================================
+   CONTAINER
+   ========================================================= */
+
+.services-container {
+  position: relative;
+
+  z-index: 2;
+
+  width:
+    min(
+      1280px,
+      calc(100% - 80px)
+    );
+
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   SECTION HEADER
+   ========================================================= */
+
+.services-heading {
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: space-between;
+
+  gap: 60px;
+
+  margin-bottom: 75px;
+}
+
+
+.services-heading-left {
+  min-width: 0;
+}
+
+
+.services-label {
+  display: block;
+
+  margin-bottom: 16px;
+
+  color: var(--red);
+
+  font-family: "Roboto", sans-serif;
+
+  font-size: 0.72rem;
+
+  font-weight: 900;
+
+  letter-spacing: 0.22em;
+}
+
+
+.services-title {
+  margin: 0;
+
+  color: var(--black);
+
+  font-family: "Anton", sans-serif;
+
+  font-size:
+    clamp(
+      4.2rem,
+      7vw,
+      7rem
+    );
+
+  font-weight: 400;
+
+  line-height: 0.86;
+
+  letter-spacing: -0.02em;
+}
+
+
+.services-title span {
+  display: block;
+
+  color: var(--red);
+}
+
+
+.services-heading-right {
+  width:
+    min(
+      390px,
+      100%
+    );
+
+  padding-bottom: 7px;
+}
+
+
+.services-heading-right p {
+  margin: 0;
+
+  color: var(--grey);
+
+  font-family: "Roboto", sans-serif;
+
+  font-size: 0.92rem;
+
+  font-weight: 400;
+
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   THREE CARD GRID
+   ========================================================= */
+
+.services-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 18px;
+
+  align-items: stretch;
+}
+
+
+/* =========================================================
+   MAIN SERVICE CARD
+   ========================================================= */
+
+.service-main-card {
+  position: relative;
+
+  min-width: 0;
+
+  min-height: 650px;
+
+  padding: 32px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff 0%,
+      #fafafa 100%
+    );
+
+  border:
+    1px solid var(--border);
+
+  border-radius: 26px;
+
+  overflow: hidden;
+
+  isolation: isolate;
+
+  transition:
+    transform 0.55s cubic-bezier(.16, 1, .3, 1),
+    box-shadow 0.55s ease,
+    border-color 0.4s ease;
+}
+
+
+/* =========================================================
+   SHINY BORDER
+   ========================================================= */
+
+.service-main-card::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  padding: 1.5px;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      120deg,
+      transparent 20%,
+      rgba(217, 0, 10, 0.2) 35%,
+      #ff3038 48%,
+      #ffffff 50%,
+      #ff3038 52%,
+      rgba(217, 0, 10, 0.2) 65%,
+      transparent 80%
+    );
+
+  background-size: 250% 250%;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+
+  -webkit-mask-composite: xor;
+
+  mask-composite: exclude;
+
+  transition:
+    opacity 0.35s ease;
+}
+
+
+.service-main-card:hover::before {
+  opacity: 1;
+
+  animation:
+    shinyServiceBorder 2.4s linear infinite;
+}
+
+
+@keyframes shinyServiceBorder {
+
+  0% {
+    background-position:
+      200% 50%;
+  }
+
+  100% {
+    background-position:
+      -50% 50%;
+  }
+
+}
+
+
+/* =========================================================
+   CARD GLOW
+   ========================================================= */
+
+.service-main-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 230px;
+  height: 230px;
+
+  right: -130px;
+  bottom: -130px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(217, 0, 10, 0.12);
+
+  filter: blur(60px);
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.5s ease,
+    transform 0.6s ease;
+}
+
+
+.service-main-card:hover::after {
+  opacity: 1;
+
+  transform:
+    translate(-45px, -45px);
+}
+
+
+/* =========================================================
+   HOVER
+   ========================================================= */
+
+.service-main-card:hover {
+  transform:
+    translateY(-10px);
+
+  border-color:
+    rgba(217, 0, 10, 0.28);
+
+  box-shadow:
+    0 30px 65px
+    rgba(0, 0, 0, 0.11);
+}
+
+
+/* =========================================================
+   CARD TOP
+   ========================================================= */
+
+.service-main-card-top {
+  position: relative;
+
+  z-index: 3;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  margin-bottom: 48px;
+}
+
+
+.service-card-heading-meta {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+
+.service-main-number {
+  color: var(--red);
+
+  font-size: 0.72rem;
+
+  font-weight: 900;
+
+  letter-spacing: 0.16em;
+}
+
+
+.service-main-label {
+  color: #999999;
+
+  font-size: 0.62rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.16em;
+}
+
+
+/* =========================================================
+   ICON
+   ========================================================= */
+
+.service-main-icon {
+  width: 62px;
+  height: 62px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 17px;
+
+  background: #f4f4f4;
+
+  border:
+    1px solid #dfdfdf;
+
+  transition:
+    transform 0.5s cubic-bezier(.16, 1, .3, 1),
+    background 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+
+.service-main-icon img {
+  width: 30px;
+  height: 30px;
+
+  object-fit: contain;
+
+  display: block;
+
+  transition:
+    transform 0.45s ease;
+}
+
+
+.service-main-card:hover .service-main-icon {
+  background:
+    var(--red);
+
+  border-color:
+    var(--red);
+
+  transform:
+    rotate(5deg)
+    scale(1.08);
+
+  box-shadow:
+    0 10px 30px
+    rgba(217, 0, 10, 0.25);
+}
+
+
+.service-main-card:hover .service-main-icon img {
+  transform:
+    scale(1.12);
+}
+
+
+/* =========================================================
+   CARD CONTENT
+   ========================================================= */
+
+.service-main-card-content {
+  position: relative;
+
+  z-index: 2;
+
+  margin-bottom: 30px;
+}
+
+
+.service-main-card-content h3 {
+  margin:
+    0 0 14px;
+
+  color:
+    var(--black);
+
+  font-family:
+    "Roboto", sans-serif;
+
+  font-size:
+    2.5rem;
+
+  font-weight:
+    900;
+
+  line-height:
+    1;
+
+  letter-spacing:
+    -0.03em;
+
+  transition:
+    color 0.3s ease;
+}
+
+
+.service-main-card:hover
+.service-main-card-content h3 {
+  color:
+    var(--red);
+}
+
+
+.service-main-card-content p {
+  max-width:
+    390px;
+
+  margin:
+    0;
+
+  color:
+    #707070;
+
+  font-family:
+    "Roboto", sans-serif;
+
+  font-size:
+    0.86rem;
+
+  font-weight:
+    400;
+
+  line-height:
+    1.7;
+}
+
+
+/* =========================================================
+   SERVICE LIST
+   ========================================================= */
+
+.service-list {
+  position: relative;
+
+  z-index: 2;
+
+  display: flex;
+
+  flex-direction: column;
+
+  margin-top: auto;
+
+  border-top:
+    1px solid #e5e5e5;
+}
+
+
+.service-list-item {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 18px;
+
+  padding:
+    15px 0;
+
+  border-bottom:
+    1px solid #eeeeee;
+}
+
+
+.service-list-item > div {
+  min-width: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+
+.service-list-item strong {
+  color:
+    #222222;
+
+  font-family:
+    "Roboto", sans-serif;
+
+  font-size:
+    0.82rem;
+
+  font-weight:
+    800;
+
+  line-height:
+    1.3;
+
+  transition:
+    color 0.3s ease;
+}
+
+
+.service-list-item span {
+  color:
+    #909090;
+
+  font-family:
+    "Roboto", sans-serif;
+
+  font-size:
+    0.68rem;
+
+  line-height:
+    1.4;
+}
+
+
+.service-list-item b {
+  flex-shrink: 0;
+
+  color:
+    var(--red);
+
+  font-family:
+    "Roboto", sans-serif;
+
+  font-size:
+    0.78rem;
+
+  font-weight:
+    900;
+
+  white-space:
+    nowrap;
+}
+
+
+.service-list-item:hover strong {
+  color:
+    var(--red);
+}
+
+
+/* =========================================================
+   PIERCING LIST
+   ========================================================= */
+
+.piercing-list {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  column-gap: 20px;
+}
+
+
+.piercing-list .service-list-item {
+  gap: 8px;
+}
+
+
+/* =========================================================
+   AFTERCARE
+   ========================================================= */
+
+.aftercare-content {
+  position: relative;
+
+  z-index: 2;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 22px;
+
+  margin-top: auto;
+
+  padding-top: 15px;
+}
+
+
+.aftercare-feature {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 15px;
+}
+
+
+.aftercare-feature-icon {
+  flex-shrink: 0;
+
+  width: 29px;
+  height: 29px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  color:
+    #ffffff;
+
+  background:
+    var(--red);
+
+  font-size:
+    0.72rem;
+
+  font-weight:
+    900;
+}
+
+
+.aftercare-feature strong {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color:
+    #222222;
+
+  font-family:
+    "Roboto", sans-serif;
+
+  font-size:
+    0.82rem;
+
+  font-weight:
+    800;
+}
+
+
+.aftercare-feature p {
+  max-width:
+    300px;
+
+  margin:
+    0;
+
+  color:
+    #858585;
+
+  font-family:
+    "Roboto", sans-serif;
+
+  font-size:
+    0.7rem;
+
+  line-height:
+    1.6;
+}
+
+
+/* =========================================================
+   BOOKING BUTTON
+   ========================================================= */
+
+.service-book-button {
+  position: relative;
+
+  z-index: 5;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 15px;
+
+  width: 100%;
+
+  margin-top: 30px;
+
+  padding:
+    15px 17px;
+
+  border:
+    1px solid var(--black);
+
+  border-radius:
+    10px;
+
+  background:
+    var(--black);
+
+  color:
+    #ffffff;
+
+  text-decoration:
+    none;
+
+  font-family:
+    "Roboto", sans-serif;
+
+  font-size:
+    0.7rem;
+
+  font-weight:
+    900;
+
+  letter-spacing:
+    0.12em;
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+.service-book-arrow {
+  width: 30px;
+  height: 30px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius:
+    50%;
+
+  background:
+    rgba(255, 255, 255, 0.12);
+
+  color:
+    #ffffff;
+
+  font-size:
+    0.9rem;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+/* =========================================================
+   BUTTON HOVER — RED
+   ========================================================= */
+
+.service-book-button:hover {
+  background:
+    var(--red);
+
+  border-color:
+    var(--red);
+
+  color:
+    #ffffff;
+
+  transform:
+    translateY(-3px);
+
+  box-shadow:
+    0 12px 30px
+    rgba(217, 0, 10, 0.25);
+}
+
+
+.service-book-button:hover
+.service-book-arrow {
+  background:
+    #ffffff;
+
+  color:
+    var(--red);
+
+  transform:
+    rotate(45deg);
+}
+
+
+/* =========================================================
+   PRICE LIST SECTION
+   ========================================================= */
+
+.tattoo-price-section {
+  position: relative;
+
+  margin-top: 90px;
+
+  padding:
+    55px;
+
+  background:
+    #111111;
+
+  border-radius:
+    28px;
+
+  overflow: hidden;
+
+  isolation: isolate;
+}
+
+
+.tattoo-price-section::before {
+  content: "";
+
+  position: absolute;
+
+  width: 420px;
+  height: 420px;
+
+  right: -180px;
+  top: -200px;
+
+  border-radius:
+    50%;
+
+  background:
+    rgba(217, 0, 10, 0.17);
+
+  filter:
+    blur(80px);
+
+  pointer-events:
+    none;
+}
+
+
+/* =========================================================
+   PRICE HEADING
+   ========================================================= */
+
+.tattoo-price-heading {
+  position: relative;
+
+  z-index: 2;
+
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: space-between;
+
+  gap: 40px;
+
+  margin-bottom: 40px;
+}
+
+
+.tattoo-price-label {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color:
+    #ff3a42;
+
+  font-size:
+    0.68rem;
+
+  font-weight:
+    900;
+
+  letter-spacing:
+    0.2em;
+}
+
+
+.tattoo-price-heading h3 {
+  margin:
+    0;
+
+  color:
+    #ffffff;
+
+  font-family:
+    "Roboto", sans-serif;
+
+  font-size:
+    clamp(
+      2rem,
+      4vw,
+      3.3rem
+    );
+
+  font-weight:
+    900;
+
+  line-height:
+    0.95;
+
+  letter-spacing:
+    -0.03em;
+}
+
+
+.tattoo-price-heading h3 span {
+  color:
+    var(--red);
+}
+
+
+/* =========================================================
+   LEGEND
+   ========================================================= */
+
+.tattoo-price-legend {
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  flex-wrap:
+    wrap;
+
+  justify-content:
+    flex-end;
+
+  gap:
+    12px;
+}
+
+
+.tattoo-price-legend span {
+  padding:
+    8px 12px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.1);
+
+  border-radius:
+    999px;
+
+  color:
+    #a9a9a9;
+
+  background:
+    rgba(255, 255, 255, 0.04);
+
+  font-size:
+    0.63rem;
+
+  font-weight:
+    600;
+}
+
+
+.tattoo-price-legend strong {
+  color:
+    #ffffff;
+
+  margin-right:
+    4px;
+}
+
+
+/* =========================================================
+   PRICE TABLE
+   ========================================================= */
+
+.tattoo-price-table-wrapper {
+  position:
+    relative;
+
+  z-index:
+    2;
+
+  width:
+    100%;
+
+  overflow-x:
+    auto;
+
+  -webkit-overflow-scrolling:
+    touch;
+}
+
+
+.tattoo-price-table {
+  width:
+    100%;
+
+  min-width:
+    700px;
+
+  border-collapse:
+    collapse;
+
+  font-family:
+    "Roboto", sans-serif;
+}
+
+
+.tattoo-price-table th,
+.tattoo-price-table td {
+  padding:
+    18px 20px;
+
+  border-bottom:
+    1px solid
+    rgba(255, 255, 255, 0.09);
+
+  text-align:
+    left;
+}
+
+
+.tattoo-price-table thead th {
+  color:
+    #ffffff;
+
+  background:
+    rgba(255, 255, 255, 0.05);
+
+  font-size:
+    0.72rem;
+
+  font-weight:
+    800;
+
+  letter-spacing:
+    0.08em;
+
+  text-transform:
+    uppercase;
+}
+
+
+.tattoo-price-table thead th:first-child {
+  border-radius:
+    10px 0 0 10px;
+}
+
+
+.tattoo-price-table thead th:last-child {
+  border-radius:
+    0 10px 10px 0;
+}
+
+
+.tattoo-price-table tbody th {
+  color:
+    #ffffff;
+
+  font-size:
+    0.82rem;
+
+  font-weight:
+    700;
+}
+
+
+.tattoo-price-table tbody td {
+  color:
+    #c1c1c1;
+
+  font-size:
+    0.78rem;
+
+  font-weight:
+    500;
+
+  white-space:
+    nowrap;
+
+  transition:
+    background 0.25s ease;
+}
+
+
+.tattoo-price-table tbody tr:hover td,
+.tattoo-price-table tbody tr:hover th {
+  background:
+    rgba(217, 0, 10, 0.08);
+}
+
+
+.tattoo-price-table td span {
+  color:
+    #ff3a42;
+
+  font-weight:
+    900;
+}
+
+
+.tattoo-price-table td i {
+  margin:
+    0 4px;
+
+  color:
+    #666666;
+
+  font-style:
+    normal;
+}
+
+
+/* =========================================================
+   PRICE NOTE
+   ========================================================= */
+
+.tattoo-price-note {
+  position:
+    relative;
+
+  z-index:
+    2;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    12px;
+
+  margin-top:
+    20px;
+}
+
+
+.tattoo-price-note span {
+  color:
+    var(--red);
+
+  font-size:
+    0.62rem;
+
+  font-weight:
+    900;
+
+  letter-spacing:
+    0.15em;
+}
+
+
+.tattoo-price-note p {
+  margin:
+    0;
+
+  color:
+    #999999;
+
+  font-size:
+    0.7rem;
+}
+
+
+/* =========================================================
+   PRICE FOOTER
+   ========================================================= */
+
+.tattoo-price-footer {
+  position:
+    relative;
+
+  z-index:
+    2;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+
+  gap:
+    30px;
+
+  margin-top:
+    35px;
+
+  padding-top:
+    25px;
+
+  border-top:
+    1px solid
+    rgba(255, 255, 255, 0.1);
+}
+
+
+.tattoo-price-footer p {
+  max-width:
+    620px;
+
+  margin:
+    0;
+
+  color:
+    #888888;
+
+  font-size:
+    0.7rem;
+
+  line-height:
+    1.7;
+}
+
+
+/* =========================================================
+   GET QUOTE BUTTON
+   ========================================================= */
+
+.price-book-button {
+  flex-shrink:
+    0;
+
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  gap:
+    12px;
+
+  padding:
+    14px 18px;
+
+  border:
+    1px solid
+    var(--red);
+
+  border-radius:
+    10px;
+
+  background:
+    var(--red);
+
+  color:
+    #ffffff;
+
+  text-decoration:
+    none;
+
+  font-size:
+    0.68rem;
+
+  font-weight:
+    900;
+
+  letter-spacing:
+    0.1em;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+.price-book-button span:last-child {
+  font-size:
+    0.9rem;
+
+  transition:
+    transform 0.3s ease;
+}
+
+
+.price-book-button:hover {
+  background:
+    #ffffff;
+
+  color:
+    var(--red);
+
+  transform:
+    translateY(-3px);
+
+  box-shadow:
+    0 12px 30px
+    rgba(217, 0, 10, 0.25);
+}
+
+
+.price-book-button:hover span:last-child {
+  transform:
+    translate(3px, -3px);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+  .services-container {
+    width:
+      calc(100% - 60px);
+  }
+
+
+  .services-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+
+  .piercing-main-card {
+    grid-column:
+      1 / -1;
+  }
+
+
+  .piercing-list {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+  }
+
+
+  .service-main-card {
+    min-height:
+      600px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL TABLET
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+  .services {
+    padding:
+      100px 0
+      110px;
+  }
+
+
+  .services-heading {
+    align-items:
+      flex-start;
+
+    flex-direction:
+      column;
+
+    gap:
+      25px;
+
+    margin-bottom:
+      60px;
+  }
+
+
+  .services-heading-right {
+    max-width:
+      500px;
+  }
+
+
+  .services-grid {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .piercing-main-card {
+    grid-column:
+      auto;
+  }
+
+
+  .piercing-list {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+
+  .service-main-card {
+    min-height:
+      auto;
+  }
+
+
+  .tattoo-price-section {
+    padding:
+      40px 30px;
+  }
+
+
+  .tattoo-price-heading {
+    align-items:
+      flex-start;
+
+    flex-direction:
+      column;
+
+    gap:
+      25px;
+  }
+
+
+  .tattoo-price-legend {
+    justify-content:
+      flex-start;
+  }
+
+
+  .tattoo-price-footer {
+    align-items:
+      flex-start;
+
+    flex-direction:
+      column;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .services {
+    padding:
+      85px 0
+      90px;
+  }
+
+
+  .services-container {
+    width:
+      calc(100% - 32px);
+  }
+
+
+  .services-heading {
+    margin-bottom:
+      50px;
+  }
+
+
+  .services-title {
+    font-size:
+      clamp(
+        3.4rem,
+        15vw,
+        5rem
+      );
+  }
+
+
+  .services-heading-right p {
+    font-size:
+      0.82rem;
+  }
+
+
+  .services-grid {
+    gap:
+      14px;
+  }
+
+
+  .service-main-card {
+    padding:
+      25px;
+
+    border-radius:
+      22px;
+  }
+
+
+  .service-main-card-top {
+    margin-bottom:
+      40px;
+  }
+
+
+  .service-main-icon {
+    width:
+      55px;
+
+    height:
+      55px;
+  }
+
+
+  .service-main-icon img {
+    width:
+      27px;
+
+    height:
+      27px;
+  }
+
+
+  .service-main-card-content h3 {
+    font-size:
+      2.35rem;
+  }
+
+
+  .service-main-card-content p {
+    font-size:
+      0.82rem;
+
+    line-height:
+      1.7;
+  }
+
+
+  .piercing-list {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .service-list-item {
+    padding:
+      14px 0;
+  }
+
+
+  .service-list-item strong {
+    font-size:
+      0.78rem;
+  }
+
+
+  .service-list-item span {
+    font-size:
+      0.64rem;
+  }
+
+
+  .service-list-item b {
+    font-size:
+      0.74rem;
+  }
+
+
+  .aftercare-content {
+    gap:
+      18px;
+  }
+
+
+  .aftercare-feature strong {
+    font-size:
+      0.78rem;
+  }
+
+
+  .aftercare-feature p {
+    font-size:
+      0.66rem;
+  }
+
+
+  .service-book-button {
+    padding:
+      15px;
+
+    font-size:
+      0.67rem;
+  }
+
+
+  /* PRICE LIST */
+
+  .tattoo-price-section {
+    margin-top:
+      60px;
+
+    padding:
+      32px 20px;
+
+    border-radius:
+      22px;
+  }
+
+
+  .tattoo-price-heading h3 {
+    font-size:
+      2rem;
+  }
+
+
+  .tattoo-price-legend {
+    gap:
+      7px;
+  }
+
+
+  .tattoo-price-legend span {
+    font-size:
+      0.58rem;
+
+    padding:
+      7px 9px;
+  }
+
+
+  .tattoo-price-table {
+    min-width:
+      650px;
+  }
+
+
+  .tattoo-price-table th,
+  .tattoo-price-table td {
+    padding:
+      15px 13px;
+  }
+
+
+  .tattoo-price-table tbody th {
+    font-size:
+      0.75rem;
+  }
+
+
+  .tattoo-price-table tbody td {
+    font-size:
+      0.7rem;
+  }
+
+
+  .tattoo-price-note {
+    align-items:
+      flex-start;
+
+    flex-direction:
+      column;
+
+    gap:
+      5px;
+  }
+
+
+  .tattoo-price-footer p {
+    font-size:
+      0.66rem;
+  }
+
+
+  .price-book-button {
+    width:
+      100%;
+
+    justify-content:
+      space-between;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .services-container {
+    width:
+      calc(100% - 24px);
+  }
+
+
+  .services-title {
+    font-size:
+      3.2rem;
+  }
+
+
+  .service-main-card {
+    padding:
+      21px;
+  }
+
+
+  .service-main-card-content h3 {
+    font-size:
+      2.15rem;
+  }
+
+
+  .tattoo-price-section {
+    padding:
+      28px 16px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .services *,
+  .services *::before,
+  .services *::after {
+
+    animation-duration:
+      0.01ms !important;
+
+    animation-iteration-count:
+      1 !important;
+
+    transition-duration:
+      0.01ms !important;
+  }
+
+}
