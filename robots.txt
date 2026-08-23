@@ -1,0 +1,7 @@
+# GIN TATTOOS
+# https://gin-tattoos.co.za
+
+User-agent: *
+Allow: /
+
+Sitemap: https://gin-tattoos.co.za/sitemap.xml
