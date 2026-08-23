@@ -1,0 +1,209 @@
+/* =========================================================
+   FLOATING SOCIAL ICONS — SMALL + ANIMATED
+   ========================================================= */
+
+.floating-socials {
+    position: fixed !important;
+    right: 20px !important;
+    bottom: 24px !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 12px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    z-index: 99999 !important;
+
+    pointer-events: none;
+}
+
+/* Individual buttons */
+.floating-socials .float-icon {
+    position: relative;
+
+    width: 42px !important;
+    height: 42px !important;
+    min-width: 42px !important;
+    min-height: 42px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    border-radius: 50% !important;
+    border: none !important;
+
+    box-sizing: border-box !important;
+
+    text-decoration: none !important;
+    line-height: 1 !important;
+
+    pointer-events: auto;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+
+    transition:
+        transform 0.35s cubic-bezier(.2,.8,.2,1),
+        box-shadow 0.35s ease,
+        filter 0.35s ease;
+    
+    animation: socialFloat 3s ease-in-out infinite;
+}
+
+/* Icons */
+.floating-socials .float-icon svg {
+    width: 21px !important;
+    height: 21px !important;
+
+    min-width: 21px !important;
+    min-height: 21px !important;
+
+    display: block !important;
+
+    fill: #fff !important;
+
+    transition:
+        transform 0.35s ease,
+        filter 0.35s ease;
+}
+
+/* =========================================================
+   BACKGROUND COLORS
+   ========================================================= */
+
+.floating-socials .float-whatsapp {
+    background: #25D366 !important;
+    animation-delay: 0s;
+}
+
+.floating-socials .float-instagram {
+    background:
+        radial-gradient(
+            circle at 30% 107%,
+            #fdf497 0%,
+            #fdf497 5%,
+            #fd5949 45%,
+            #d6249f 60%,
+            #285AEB 90%
+        ) !important;
+
+    animation-delay: 0.3s;
+}
+
+.floating-socials .float-facebook {
+    background: #1877F2 !important;
+    animation-delay: 0.6s;
+}
+
+/* =========================================================
+   FLOATING ANIMATION
+   ========================================================= */
+
+@keyframes socialFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* =========================================================
+   HOVER ANIMATION
+   ========================================================= */
+
+.floating-socials .float-icon:hover {
+    transform: scale(1.18) translateY(-4px) !important;
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.35),
+        0 0 15px rgba(255, 255, 255, 0.25);
+
+    filter: brightness(1.12);
+}
+
+.floating-socials .float-icon:hover svg {
+    transform: rotate(8deg) scale(1.08);
+}
+
+/* =========================================================
+   PULSE RING
+   ========================================================= */
+
+.floating-socials .float-icon::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255, 255, 255, 0.5);
+
+    animation: socialPulse 2.5s ease-out infinite;
+
+    pointer-events: none;
+}
+
+@keyframes socialPulse {
+
+    0% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+
+    70% {
+        transform: scale(1.35);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1.35);
+        opacity: 0;
+    }
+}
+
+/* Stagger pulse */
+.floating-socials .float-instagram::before {
+    animation-delay: 0.5s;
+}
+
+.floating-socials .float-facebook::before {
+    animation-delay: 1s;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .floating-socials {
+        right: 12px !important;
+        bottom: 16px !important;
+        gap: 9px !important;
+    }
+
+    .floating-socials .float-icon {
+        width: 36px !important;
+        height: 36px !important;
+        min-width: 36px !important;
+        min-height: 36px !important;
+    }
+
+    .floating-socials .float-icon svg {
+        width: 18px !important;
+        height: 18px !important;
+        min-width: 18px !important;
+        min-height: 18px !important;
+    }
+}
